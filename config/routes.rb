@@ -24,4 +24,5 @@ Rails.application.routes.draw do
 
   resources :categories, only: [:show]
   resources :products, only: [:show]
+  get "cart" => "carts#show"
 end
