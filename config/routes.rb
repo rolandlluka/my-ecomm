@@ -21,4 +21,12 @@ Rails.application.routes.draw do
   end
 
   get "admin" => "admin#index"
+
+  resources :categories, only: [:show]
+  resources :products, only: [:show]
+  get "cart" => "carts#show"
+  post "checkout" => "payments#create"
+  get "success" => "payments#success"
+  get "cancel" => "payments#cancel"
+  post "webhooks" => "webhooks#stripe"
 end

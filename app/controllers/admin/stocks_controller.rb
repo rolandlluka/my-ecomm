@@ -56,7 +56,7 @@ class Admin::StocksController < AdminController
     @admin_stock.destroy!
 
     respond_to do |format|
-      format.html { redirect_to admin_stocks_url, notice: "Stock was successfully destroyed." }
+      format.html { redirect_to admin_product_stocks_url, notice: "Stock was successfully destroyed." }
       format.json { head :no_content }
     end
   end
