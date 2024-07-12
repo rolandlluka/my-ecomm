@@ -6,7 +6,11 @@ Rails.application.routes.draw do
     end
     resources :categories
   end
-  devise_for :admins
+  devise_for :admins, skip: [:registrations]
+  as :admin do
+    get 'admins/edit' => 'devise/registrations#edit', :as => 'edit_admin_registration'
+    patch 'admins' => 'devise/registrations#update', :as => 'admin_registration'
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
